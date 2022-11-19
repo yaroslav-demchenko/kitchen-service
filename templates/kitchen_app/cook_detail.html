@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Username: {{ cook_detail.username }}
+    <a href="{% url 'kitchen_app:cook_delete' pk=cook_detail.pk %}" class="btn btn-primary link-to-page">
+      Delete
+    </a>
+	  
+    <a href="{% url 'kitchen_app:cook_update' pk=cook_detail.pk %}" class="btn btn-primary link-to-page" style="background-color: cadetblue">
+      Edit
+    </a>
+  </h1>
+  <p><strong>First name:</strong> {{ cook_detail.first_name }}</p>
+  <p><strong>Last name:</strong> {{ cook_detail.last_name }}</p>
+  <p><strong>Years of experience: </strong> {{ cook_detail.years_of_experience }}</p>
+
+  <div class="ml-3">
+    <h4 style="color: white">Dishes</h4>
+
+    {% for dish in cook_detail.cooks.all %}
+        <hr>
+        <p><strong>Dish:</strong> {{ dish.name }}</p>
+        <p><strong>Category of dish:</strong> {{ dish.dish_type.name }}</p>
+    {% empty %}
+      <p>No dishes!</p>
+    {% endfor %}
+  </div>
+{% endblock %}

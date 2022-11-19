@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1>Dish categories <a href="{% url 'kitchen_app:dish_type_create' %}" class="btn btn-primary link-to-page">Add new category</a></h1>
+	<br>
+	<br>
+  {% if dish_type_list %}
+	  <table class="table table-dark">
+	      <thead class="thead-dark">
+	        <tr>
+	          <th>Name</th>
+		        <th>Delete</th>
+	        </tr>
+	      </thead>
+	      {% for dish_type in dish_type_list %}
+	        <tr>
+	          <td class="tbl-content">{{ dish_type.name }}</td>
+	          <td><a class="table-a" href="{% url 'kitchen_app:dish_type_delete' pk=dish_type.pk%}">Delete 🗑 </a></td>
+	        </tr>
+	      {% endfor %}
+	    </table>
+  {% else %}
+    <p>There are no dish category in kitchen service</p>
+  {% endif %}
+{% endblock %}

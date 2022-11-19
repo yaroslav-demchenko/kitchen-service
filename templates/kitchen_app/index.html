@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+		<span>So Yummy it will Melt Your Heart</span>
+		<h1>Our Kitchen Service has:</h1>
+		<br>
+		<ul>
+			<li><h3 style="color: #e6be99">{{ num_type }} categories of dishes</h3></li>
+			<li><h3 style="color: #e6be99">and {{ num_dishes }} different dishes</h3></li>
+			<li><h3 style="color: #e6be99">that our {{ num_cooks }} chefs will personally prepare for you</h3></li>
+			<li><h3 style="color: #e6be99">from more than {{ num_ingredient }} ingredients</h3></li>
+		</ul>
+		<br>
+		<h1><a href="{% url 'kitchen_app:dish_list' %}" class="btn btn-primary link-to-page">See menu</a></h1>
+	{% else %}
+		<span>So Yummy it will Melt Your Heart</span>
+		<h1>Kitchen Service</h1>
+		<p>A place where food and coziness compliment each other.</p>
+		<p>To see more information you need to login</p>
+		<a href="{% url 'login' %}" class="btn btn-primary btn-xl page-scroll">Login</a>
+	{% endif %}
+{% endblock %}

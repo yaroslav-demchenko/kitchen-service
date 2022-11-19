@@ -1,0 +1,26 @@
+{% load query_transform %}
+{% if is_paginated %}
+	<ul class="pagination">
+		{% if page_obj.has_previous %}
+			<li>
+				<a href="?{% query_transform request page=page_obj.previous_page_number %}" class="btn">Prev</a>
+			</li>
+		{% else %}
+			<li class="act">
+				<span class="btn act">Prev</span>
+			</li>
+		{% endif %}
+		<li class="act">
+			<span class="btn">{{ page_obj.number }}</span>
+		</li>
+		{% if page_obj.has_next %}
+			<li>
+				<a href="?{% query_transform request page=page_obj.next_page_number %}" class="btn">Next</a>
+			</li>
+		{% else %}
+			<li class="act">
+				<span class="btn">Next</span>
+			</li>
+		{% endif %}
+	</ul>
+{% endif %}

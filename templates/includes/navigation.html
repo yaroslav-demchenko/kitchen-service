@@ -1,25 +1,25 @@
 <!--Navigation-->
 <nav id="menu" class="navbar">
-	<div class="container">
-		<div class="navbar-header"><!--<span id="heading" class="visible-xs">Categories</span>-->
-		  <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-			<a class="navbar-brand" href="">
-				<img src="/static/images/logo.png" width="250px"/>
-			</a>
-		</div>
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="{% url 'kitchen_app:home_page' %}">Home</a></li>
-				<li><a href="{% url 'kitchen_app:dish_list' %}">Menu</a></li>
-				<li><a href="{% url 'kitchen_app:dish_type_list' %}">Dish category</a></li>
-				<li><a href="{% url 'kitchen_app:cook_list' %}">Cooks</a></li>
-				<li><a href="{% url 'kitchen_app:ingredients_list' %}">Cold store</a></li>
-				{% if user.is_authenticated %}
-					<li><a href="{% url 'logout' %}">Logout</a></li>
-					{% else %}
-					<li><a href="{% url 'login' %}">Login</a></li>
-				{% endif %}
-			</ul>
-		</div>
-	</div>
+  <div class="container">
+    <div class="navbar-header"><!--<span id="heading" class="visible-xs">Categories</span>-->
+      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+      <a class="navbar-brand" href="">
+        <img src="/static/images/logo.png" width="250px"/>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'kitchen_app:home_page' %}">Home</a></li>
+        <li><a href="{% url 'kitchen_app:dish_list' %}">Menu</a></li>
+        <li><a href="{% url 'kitchen_app:dish_type_list' %}">Dish category</a></li>
+        <li><a href="{% url 'kitchen_app:cook_list' %}">Cooks</a></li>
+        <li><a href="{% url 'kitchen_app:ingredients_list' %}">Cold store</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
 </nav>

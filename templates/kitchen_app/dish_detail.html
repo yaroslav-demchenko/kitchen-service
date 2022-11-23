@@ -1,25 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-	<div class="detail-content">
-		<h1>{{ dish_detail.name }}</h1>
-		<h3 class="h3-classic">{{ dish_detail.dish_type }}</h3>
-		<h3 class="h3-classic">Price: {{ dish_detail.price }}$</h3>
-		<p>Description: {{ dish_detail.description }}</p>
-		<h3 class="h3-classic">Ingredients:</h3>
-			{% if dish_detail.ingredient.count != 0 %}
-			<ul class="hr">
-				{% for inredient in dish_detail.ingredient.all %}
-				<li>
-					{{ inredient.name }}
-				</li>
-				{% endfor %}
-				{% else %}
-					<p>There are no ingredients here</p>
-				{% endif %}
-			</ul>
-		{% if dish_detail.cooks %}
-			<h3 class="h3-classic">Prepared for you
-				{% if dish_detail in user.dish.all %}
+  <div class="detail-content">
+    <h1>{{ dish_detail.name }}</h1>
+    <h3 class="h3-classic">{{ dish_detail.dish_type }}</h3>
+    <h3 class="h3-classic">Price: {{ dish_detail.price }}$</h3>
+    <p>Description: {{ dish_detail.description }}</p>
+    <h3 class="h3-classic">Ingredients:</h3>
+      {% if dish_detail.ingredient.count != 0 %}
+      <ul class="hr">
+        {% for inredient in dish_detail.ingredient.all %}
+        <li>
+          {{ inredient.name }}
+        </li>
+        {% endfor %}
+        {% else %}
+          <p>There are no ingredients here</p>
+        {% endif %}
+      </ul>
+    {% if dish_detail.cooks %}
+      <h3 class="h3-classic">Prepared for you
+        {% if dish_detail in user.dish.all %}
           <a href="{% url 'kitchen_app:toggle_dish_assign' pk=dish_detail.id %}" class="btn btn-primary">
             Delete me from this dish
           </a>
@@ -27,13 +27,13 @@
           <a href="{% url 'kitchen_app:toggle_dish_assign' pk=dish_detail.id %}" class="btn btn-primary">
             Join cooking
           </a>
+      </h3>
     {% endif %}
-			</h3>
-			<ul>
-				{% for cook in dish_detail.cooks.all %}
-					<li><p>{{ cook.username }}</p></li>
-				{% endfor %}
-			</ul>
-		{% endif %}
-	</div>
+      <ul>
+        {% for cook in dish_detail.cooks.all %}
+          <li><p>{{ cook.username }}</p></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
 {% endblock %}

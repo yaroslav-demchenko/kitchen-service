@@ -2,37 +2,37 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-	<h1>Dish list <a href="{% url 'kitchen_app:dish_create' %}" class="btn btn-primary link-to-page">Add new dish</a></h1>
-	<br>
-	<br>
+  <h1>Dish list <a href="{% url 'kitchen_app:dish_create' %}" class="btn btn-primary link-to-page">Add new dish</a></h1>
+  <br>
+  <br>
   <form action="" method="get" class="example">
     {{ search_form.as_div }}
-		  <input type="submit" value="🔎" class="btn-search">
+      <input type="submit" value="🔎" class="btn-search">
   </form>
   <br>
   {% if dish_list %}
-      <table class="table table-dark">
-	      <thead class="thead-dark">
-	        <tr>
-	          <th>Name</th>
-	          <th>Price</th>
-		        <th>Dish type</th>
-		        <th>Ingredients</th>
-		        <th>Edit</th>
-		        <th>Delete</th>
-	        </tr>
-	      </thead>
-	      {% for dish in dish_list %}
-	        <tr>
-	          <td><a class="table-a" href="{% url 'kitchen_app:dish_detail' pk=dish.id %}">{{ dish.name }}</a></td>
-	          <td class="tbl-content">{{ dish.price }}</td>
-	          <td class="tbl-content">{{ dish.dish_type }}</td>
-	          <td class="tbl-content">{{ dish.ingredient.count }}</td>
-	          <td><a class="table-a" href="{% url 'kitchen_app:dish_update' pk=dish.id %}">Edit ⚙ </a></td>
-	          <td><a class="table-a" href="{% url 'kitchen_app:dish_delete' pk=dish.id %}">Delete 🗑 </a></td>
-	        </tr>
-	      {% endfor %}
-	    </table>
+    <table class="table table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Dish type</th>
+          <th>Ingredients</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for dish in dish_list %}
+        <tr>
+          <td><a class="table-a" href="{% url 'kitchen_app:dish_detail' pk=dish.id %}">{{ dish.name }}</a></td>
+          <td class="tbl-content">{{ dish.price }}</td>
+          <td class="tbl-content">{{ dish.dish_type }}</td>
+          <td class="tbl-content">{{ dish.ingredient.count }}</td>
+          <td><a class="table-a" href="{% url 'kitchen_app:dish_update' pk=dish.id %}">Edit ⚙ </a></td>
+          <td><a class="table-a" href="{% url 'kitchen_app:dish_delete' pk=dish.id %}">Delete 🗑 </a></td>
+        </tr>
+      {% endfor %}
+    </table>
   {% else %}
     <p>There are no dish in kitchen service</p>
   {% endif %}

@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-	<h1>Ingredients list <a href="{% url 'kitchen_app:ingredients_create' %}" class="btn btn-primary link-to-page">Add new ingredient</a></h1>
-	<br>
-	<br>
+  <h1>Ingredients list <a href="{% url 'kitchen_app:ingredients_create' %}" class="btn btn-primary link-to-page">Add new ingredient</a></h1>
+  <br>
+  <br>
   {% if ingredient_list %}
-      <table class="table table-dark">
-	      <thead class="thead-dark">
-	        <tr>
-	          <th>Name</th>
-		        <th>Delete</th>
-	        </tr>
-	      </thead>
-	      {% for ingredient in ingredient_list %}
-	        <tr>
-	          <td class="tbl-content">{{ ingredient.name }}</td>
-	          <td><a class="table-a" href="{% url 'kitchen_app:ingredients_delete' pk=ingredient.pk %}">Delete 🗑 </a></td>
-	        </tr>
-	      {% endfor %}
-	    </table>
+    <table class="table table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for ingredient in ingredient_list %}
+      <tr>
+        <td class="tbl-content">{{ ingredient.name }}</td>
+        <td><a class="table-a" href="{% url 'kitchen_app:ingredients_delete' pk=ingredient.pk %}">Delete 🗑 </a></td>
+      </tr>
+      {% endfor %}
+    </table>
   {% else %}
     <p>There are ingredients in cold store</p>
   {% endif %}

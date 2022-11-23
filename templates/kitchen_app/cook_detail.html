@@ -6,7 +6,7 @@
     <a href="{% url 'kitchen_app:cook_delete' pk=cook_detail.pk %}" class="btn btn-primary link-to-page">
       Delete
     </a>
-	  
+
     <a href="{% url 'kitchen_app:cook_update' pk=cook_detail.pk %}" class="btn btn-primary link-to-page" style="background-color: cadetblue">
       Edit
     </a>
@@ -19,9 +19,9 @@
     <h4 style="color: white">Dishes</h4>
 
     {% for dish in cook_detail.cooks.all %}
-        <hr>
-        <p><strong>Dish:</strong> {{ dish.name }}</p>
-        <p><strong>Category of dish:</strong> {{ dish.dish_type.name }}</p>
+      <hr>
+      <p><strong>Dish:</strong> {{ dish.name }}</p>
+      <p><strong>Category of dish:</strong> {{ dish.dish_type.name }}</p>
     {% empty %}
       <p>No dishes!</p>
     {% endfor %}

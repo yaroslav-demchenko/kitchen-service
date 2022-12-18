@@ -1,5 +1,9 @@
 # Kitchen service
 Django project for managing cooks and dishes on kitchen
+
+## Check it out!
+[Kitchen service deployed to Render](https://kitchen-service-m1mo.onrender.com)
+
 ## Built With
 * [Python](https://www.python.org/) - The project worked on this
 * [Django](https://www.djangoproject.com/) - The project is based on this

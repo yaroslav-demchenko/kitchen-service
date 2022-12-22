@@ -3,6 +3,11 @@ Django project for managing cooks and dishes on kitchen
 
 ## Check it out!
 [Kitchen service deployed to Render](https://kitchen-service-m1mo.onrender.com)
+Test account:
+
+* username: guest
+
+* password: Guest1234*
 
 ## Built With
 * [Python](https://www.python.org/) - The project worked on this
